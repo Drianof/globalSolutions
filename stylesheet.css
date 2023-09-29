@@ -1,66 +1,160 @@
-*{
+@font-face {
+    font-family: 'Cooper';
+    src: url('caminho-para-a-sua-fonte/Cooper-Regular.ttf') format('truetype');
+    /* Outros formatos de fonte (e.g., woff, woff2) podem ser adicionados aqui para melhor compatibilidade */
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Cooper', sans-serif;
+}
+
+/* RESET */
+* {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-
-body{ 
-    background-color: white;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-.header{
-    margin-top: 10px;
-    color: white;
-    background-color: rgb(255, 98, 0);
-    border-radius: 15px;
-    padding: 10px;
-}
-
-.options{
-    display: inline-flex;
-    align-items: flex-start;
-    margin-left: 45%;
-    justify-content: space-between;
-    
-    
-}
-.navBar{
+.bar {
+    width: 100%;
+    height: 100px;
+    text-align: left;
+    padding-left: 100px;
+    background-color: #FF5A00;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Z_INDEX deixar a frente*/
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 100px;
+    justify-content: space-between; /* Alinhar horizontalmente no centro */
+    align-items: center; /* Alinhar verticalmente no centro */
 }
 
-.catalogo{
-    background-color: rgb(255, 98, 0);
-    text-align: center;
-    margin-top: 20px;
-
+.bar h3 {
+    margin-right: auto; /* Empurra o <h3> para a direita da tela */
+    font-family: 'Cooper', sans-serif;
+    font-size: 3rem;
 }
-.outlined-button {
-    display: inline-block;
+
+.gerenciar {
+    margin: 0;
     width: 150px;
-    padding: 5px 10px;
-    font-size: 15px;
-    text-align: center;
-    text-decoration: none;
-    color:  rgb(255, 98, 0);
-    border: 2px solid rgb(255, 98, 0);
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    height: 25px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1%, rgba(255, 90, 0, 1) 40%);
+    border: 1px solid #fff;
+    font-size: 1.2rem;
+    color: #fff;
+    position: relative; /* Alterado para 'absolute' para posicionar o botão */
+    right: 20px; /* Coloca o botão na borda direta da tela */
+    transform: none; /* Ajusta verticalmente o posicionamento do botão */
 }
 
-.outlined-button:hover {
-    background-color: #ff73001d;
+button i {
+    margin-right: 10px;
 }
 
+.seletores {
+    display: flex; /* Exibe os seletores em linha */
+    align-items: center; /* Alinha verticalmente ao centro */
+    margin-right: 25px; /* Espaçamento à direita dos seletores */
+}
 
+.combobox1 {
+    margin-right: 10px; /* Espaçamento entre os seletores */
+    width: auto;
+    width: auto;
+    height: 25px;
+    color: #FF5A00;
+    font-weight: bold;
+    font-size: larger;
+}
 
+.combobox2 {
+    margin-right: 10px; /* Espaçamento entre os seletores */
+    width: auto;
+    height: 25px;
+    color: #FF5A00;
+    font-weight: bold;
+    font-size: larger;
+}
 
+.status {
+    margin-top: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: #fff; /* Cor de destaque clara */
+    padding: 2px; /* Espaçamento interno */
+}
 
+.tag-wrap {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    filter: drop-shadow(0.1em 0.3em 0.3em rgba(0, 0, 0, 0.5)); /* Valores ajustados para a sombra */
+}
 
+.tag1 {
+    width: 250px; /* Largura dos botões em pixels */
+    height: 30px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold; /* Define o texto em negrito */
+    background-color: #FF5A00;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0% 0%, 75% 0%, 85% 50%, 75% 100%, 0% 100%);
+    text-align: justify;
+    padding-left: 75px;
+    line-height: 30px; /* Alinha o texto verticalmente ao centro */
+    color: #fff;
+}
+
+.tag2 {
+    width: 250px; /* Largura dos botões em pixels */
+    height: 30px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold; /* Define o texto em negrito */
+    background-color: #FFf;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(75% 0%, 85% 50%, 75% 100%, 0% 100%, 8% 50%, 0% 0%);
+    text-align: justify;
+    padding-left: 75px;
+    line-height: 30px; /* Alinha o texto verticalmente ao centro */
+    color: #FF5A00;
+}
+
+/* Estilos para tela com 414x896 (por exemplo, um dispositivo móvel) */
+@media screen and (max-width: 414px) and (max-height: 896px) {
+    .bar {
+        padding-left: 20px; /* Reduz o padding à esquerda */
+        padding-right: 20px; /* Reduz o padding à direita */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .bar h3 {
+        margin-right: auto; /* Remove a margem para a direita */
+    }
+
+    .gerenciar {
+        width: 110%; /* Ocupa toda a largura disponível */
+        position: relative; /* Retorna ao posicionamento relativo */
+        right: 0; /* Remove a margem à direita */
+        top: initial; /* Remove o posicionamento vertical */
+        transform: none; /* Remove a transformação vertical */
+        margin-top: 10px; /* Adiciona margem superior */
+    }
+}
